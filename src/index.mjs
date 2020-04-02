@@ -2,17 +2,19 @@
 
 import arg from 'arg'
 import inquirer from 'inquirer'
+import { createProject } from './create_project.mjs'
 
-type CliOptions = {
+export type CliOptions = {
   skipPrompts: boolean,
   git: boolean,
   runInstall: boolean,
+  template: 'js' | 'flow-js',
 }
 
 export async function cli(args: string[]) {
   let options = parseArgumentsIntoOptions(args)
   options = await propmpForMissingOptions(options)
-  console.log(options)
+  await createProject(options)
 }
 
 function parseArgumentsIntoOptions(rawArgs: string[]): CliOptions {
@@ -28,15 +30,28 @@ function parseArgumentsIntoOptions(rawArgs: string[]): CliOptions {
     skipPrompts: args['--skip'] || false,
     git: args['--git'] || false,
     runInstall: args['--install'] || false,
+    template: args._[0],
   }
 }
 
-async function propmpForMissingOptions(options: CliOptions): Promise<CliOptions> {
+async function propmpForMissingOptions(
+  options: CliOptions
+): Promise<CliOptions> {
   if (options.skipPrompts) {
     return options
   }
 
   const questions = []
+
+  if (!options.template) {
+    questions.push({
+      type: 'list',
+      name: 'template',
+      message: 'Please choose which project template to use',
+      choices: ['js', 'flow-js'],
+      default: 'js',
+    })
+  }
 
   if (!options.git) {
     questions.push({
@@ -61,6 +76,7 @@ async function propmpForMissingOptions(options: CliOptions): Promise<CliOptions>
   return {
     ...options,
     git: options.git || answers.git,
-    runInstall: options.runInstall || answers.npm
+    runInstall: options.runInstall || answers.npm,
+    template: options.template || answers.template,
   }
 }
