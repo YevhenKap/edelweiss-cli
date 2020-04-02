@@ -1,0 +1,13 @@
+flow-typed/
+node_modules/
+src/
+test/
+coverage/
+.nyc_output/
+
+.eslintrc.json
+.flowconfig
+.prettierrc.json
+CHANGELOG.md
+gulpfile.js
+package-lock.json
