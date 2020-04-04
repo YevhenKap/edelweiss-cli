@@ -17,7 +17,7 @@ async function copyTemplateFiles(options: {
   templateDirectory: string,
   targetDirectory: string,
 }) {
-  return copy(options.templateDirectory, options.targetDirectory, {
+  await copy(options.templateDirectory, options.targetDirectory, {
     clobber: false,
   })
 }
@@ -57,24 +57,27 @@ export async function createProject(options: CliOptions) {
         }),
     },
     {
-      title: 'Initialize git',
+      title: 'Initialize git repository',
       task: () => initGit(targetDirectory),
-      enabled: () => options.git,
+      skip: () =>
+        !options.git
+          ? 'Flag --git or -g was not provided.'
+          : false,
     },
     {
       title: 'Install dependencies',
       task: () =>
         execa('npm', ['i'], {
-          cwd: targetDirectory
+          cwd: targetDirectory,
         }),
       skip: () =>
         !options.runInstall
-          ? 'Pass --install or -i to automatically install dependencies'
-          : undefined,
+          ? 'Flag --install or -i was not provided.'
+          : false,
     },
   ])
 
   await tasks.run()
 
-  console.log(`${chalk.green.bold('DONE')} Project ready`)
+  console.log(`${chalk.green.bold('DONE:')} Project ready`)
 }

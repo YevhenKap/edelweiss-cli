@@ -1,7 +1,7 @@
 {
   "name": "@prostory/edelweiss-cli",
-  "version": "0.0.1",
-  "description": "CLI for creating edelweiss powered projects.",
+  "version": "0.1.0",
+  "description": "CLI for creating edelweiss powered apps.",
   "main": "bin/index.mjs",
   "bin": {
     "es": "bin/index.mjs"
@@ -29,7 +29,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "flow-bin": "^0.121.0",
+    "flow-bin": "^0.122.0",
     "gulp": "^4.0.2",
     "gulp-flow-remove-types2": "^1.1.2",
     "gulp-uglify-es": "^2.0.0"

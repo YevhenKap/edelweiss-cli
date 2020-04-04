@@ -8,7 +8,7 @@ export type CliOptions = {
   skipPrompts: boolean,
   git: boolean,
   runInstall: boolean,
-  template: 'js' | 'flow-js',
+  template?: 'js' | 'flow-js',
 }
 
 export async function cli(args: string[]) {
@@ -22,6 +22,8 @@ function parseArgumentsIntoOptions(rawArgs: string[]): CliOptions {
     '--install': Boolean,
     '--git': Boolean,
     '--skip': Boolean,
+    '--template': String,
+    '-t': '--template',
     '-i': '--install',
     '-g': '--git',
     '-s': '--skip',
@@ -30,14 +32,19 @@ function parseArgumentsIntoOptions(rawArgs: string[]): CliOptions {
     skipPrompts: args['--skip'] || false,
     git: args['--git'] || false,
     runInstall: args['--install'] || false,
-    template: args._[0],
+    template: args['--template'],
   }
 }
 
 async function propmpForMissingOptions(
   options: CliOptions
 ): Promise<CliOptions> {
+  const defaultTemplate = 'js'
+
   if (options.skipPrompts) {
+    if (!options.template) {
+      options.template = defaultTemplate
+    }
     return options
   }
 
@@ -49,7 +56,7 @@ async function propmpForMissingOptions(
       name: 'template',
       message: 'Please choose which project template to use',
       choices: ['js', 'flow-js'],
-      default: 'js',
+      default: defaultTemplate,
     })
   }
 
