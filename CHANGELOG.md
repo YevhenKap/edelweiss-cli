@@ -1,5 +1,9 @@
 # [0.2.0] - 2020-08-23
 
+### Added
+
+- Initial app that anyone can try.
+
 ### Changed
 
 - `js` template to `javascript` with complete rewrite of inner structure.

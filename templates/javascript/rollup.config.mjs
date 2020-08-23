@@ -5,18 +5,24 @@ import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
+const PUBLIC_DIR_NAME = 'public';
+const BIULD_DIR_NAME = 'build';
+
 export default {
   input: 'src/index.js',
   output: {
-    file: 'public/build/index.js',
+    file: `${PUBLIC_DIR_NAME}/${BIULD_DIR_NAME}/index.js`,
     format: 'cjs',
     plugins: [terser()],
   },
   plugins: [
     cleaner({
-      targets: ['public/build/'],
+      targets: [`${PUBLIC_DIR_NAME}/${BIULD_DIR_NAME}/`],
     }),
-    url(),
+    url({
+      destDir: `${PUBLIC_DIR_NAME}/${BIULD_DIR_NAME}/images`,
+      publicPath: `/${BIULD_DIR_NAME}/images/`,
+    }),
     postcss({
       plugins: [],
       extract: true,
@@ -24,8 +30,8 @@ export default {
     }),
     nodeResolve({ browser: true }),
     dev({
-      dirs: ['public'],
-      spa: 'public/index.html',
+      dirs: [PUBLIC_DIR_NAME],
+      spa: `${PUBLIC_DIR_NAME}/index.html`,
       port: 3000,
     }),
   ],
