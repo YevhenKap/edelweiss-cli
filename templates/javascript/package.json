@@ -1,0 +1,31 @@
+{
+  "name": "app-name",
+  "private": true,
+  "version": "0.0.1",
+  "description": "<description>",
+  "scripts": {
+    "start": "rollup -c --watch",
+    "build": "rollup -c"
+  },
+  "keywords": [],
+  "author": "author name",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-url": "^5.0.1",
+    "rollup": "^2.22.0",
+    "rollup-plugin-cleaner": "^1.0.0",
+    "rollup-plugin-dev": "^1.1.2",
+    "rollup-plugin-postcss": "^3.1.5",
+    "rollup-plugin-terser": "^7.0.0"
+  },
+  "dependencies": {
+    "@prostory/edelweiss": "^1.0.0"
+  }
+}

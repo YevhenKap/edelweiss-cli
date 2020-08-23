@@ -2,12 +2,16 @@ import arg from 'arg';
 import inquirer from 'inquirer';
 import { createProject } from './create_project.mjs';
 
+const Templates = Object.freeze({
+  JavaScript: 'javascript',
+});
+
 /**
  * @typedef {{
  * skipPrompts: boolean,
  * git: boolean,
  * runInstall: boolean,
- * template?: 'js' | 'flow-js',
+ * template?: Templates[keyof Templates],
  * }} CliOptions
  */
 
@@ -15,8 +19,9 @@ import { createProject } from './create_project.mjs';
  * @param {Array<string>} args
  */
 export async function cli(args) {
-  let options = parseArgumentsIntoOptions(args);
-  options = await propmpForMissingOptions(options);
+  const options = await propmpForMissingOptions(
+    parseArgumentsIntoOptions(args)
+  );
   await createProject(options);
 }
 
@@ -39,7 +44,7 @@ function parseArgumentsIntoOptions(rawArgs) {
     skipPrompts: args['--skip'] || false,
     git: args['--git'] || false,
     runInstall: args['--install'] || false,
-    template: args['--template'],
+    template: args['--template'] || Templates.JavaScript,
   };
 }
 
@@ -49,26 +54,11 @@ function parseArgumentsIntoOptions(rawArgs) {
  * @returns {Promise<CliOptions>}
  */
 async function propmpForMissingOptions(options) {
-  const defaultTemplate = 'js';
-
   if (options.skipPrompts) {
-    if (!options.template) {
-      options.template = defaultTemplate;
-    }
     return options;
   }
 
   const questions = [];
-
-  if (!options.template) {
-    questions.push({
-      type: 'list',
-      name: 'template',
-      message: 'Please choose which project template to use',
-      choices: ['js', 'flow-js'],
-      default: defaultTemplate,
-    });
-  }
 
   if (!options.git) {
     questions.push({
@@ -94,6 +84,5 @@ async function propmpForMissingOptions(options) {
     ...options,
     git: options.git || answers.git,
     runInstall: options.runInstall || answers.npm,
-    template: options.template || answers.template,
   };
 }
