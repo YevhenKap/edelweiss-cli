@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { cli } from '../dist/index.mjs'
+import { cli } from '../build/index.mjs';
 
-cli(process.argv)
+cli(process.argv);
