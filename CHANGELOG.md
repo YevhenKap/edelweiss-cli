@@ -1,4 +1,10 @@
-# [0.3.0] - 2020-08-25
+# [0.3.1] - 2020-08-25
+
+### Changed
+
+- `file_modules.ts` renamed to `file_modules.d.ts`.
+
+## [0.3.0] - 2020-08-25
 
 ### Added
 
