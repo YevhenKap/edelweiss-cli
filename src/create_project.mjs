@@ -1,10 +1,10 @@
-import chalk from 'chalk';
 import fs from 'fs';
 import ncp from 'ncp';
 import path from 'path';
-import { promisify } from 'util';
+import chalk from 'chalk';
 import execa from 'execa';
 import Listr from 'listr';
+import { promisify } from 'util';
 
 const access = promisify(fs.access);
 const copy = promisify(ncp);
@@ -79,5 +79,5 @@ export async function createProject(options) {
 
   await tasks.run();
 
-  console.log(`${chalk.green.bold('DONE:')} Project ready`);
+  console.log(`${chalk.green.bold('DONE:')} Project ready. Happy coding :)`);
 }

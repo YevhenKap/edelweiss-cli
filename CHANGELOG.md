@@ -1,4 +1,11 @@
-# [0.2.0] - 2020-08-23
+# [0.2.1] - 2020-08-25
+
+### Changed
+
+- Bump packages.
+- Fun message when project is ready.
+
+## [0.2.0] - 2020-08-23
 
 ### Added
 
