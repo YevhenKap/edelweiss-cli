@@ -4,6 +4,7 @@ import { createProject } from './create_project.mjs';
 
 const Templates = Object.freeze({
   JavaScript: 'javascript',
+  TypeScript: 'typescript',
 });
 
 /**

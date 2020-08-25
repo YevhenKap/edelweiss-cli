@@ -26,7 +26,7 @@ Simply type this commands in your terminal and answer to questions. That is all 
 
 Also you may set arguments to `es` utility:
 
-- `-t` or `--template` with parameter: **javascript**(for projects on plain JavaScript). Used as default template.
+- `-t` or `--template` with parameter: **javascript**(for projects on plain JavaScript. Used as default template.) or **typescript**.
 
 > Another templates are in progress.
 
