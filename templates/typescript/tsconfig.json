@@ -6,6 +6,6 @@
     "moduleResolution": "node",
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": ["src/**/*", "@types/file_modules.ts"],
+  "include": ["src/**/*", "@types/file_modules.d.ts"],
   "exclude": ["node_modules", "public", "**/*.spec.ts"]
 }
