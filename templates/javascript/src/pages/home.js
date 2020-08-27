@@ -5,7 +5,7 @@ import { html } from '@prostory/edelweiss';
 export default function homePage() {
   return html`
     <main class="main">
-      <img class="logo" src="${edelweiss}" />
+      <img class="logo" src="${edelweiss}" alt="Logo" />
       <nav class="links">
         <a class="link" href="https://github.com/YevhenKap/edelweiss#edelweiss"
           >Documentations</a
