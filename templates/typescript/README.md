@@ -1,4 +1,4 @@
-# Edelweiss SPA
+# Edelweiss SPA - PWA-ready site.
 
 For starting development server run `start` script:
 
