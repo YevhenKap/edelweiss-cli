@@ -8,7 +8,7 @@
       {
         "name": "typescript-plugin-css-modules",
         "options": {
-          "customMatcher": "\\.(m|mod|module)\\.(pc|postc|c|le|sa|sc)ss$"
+          "customMatcher": "\\.(m|mod|module)\\.(c|le|sa|sc|pc|postc)ss$"
         }
       }
     ]
