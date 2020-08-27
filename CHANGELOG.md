@@ -1,4 +1,12 @@
-# [0.4.2] - 2020-08-27
+# [0.4.3] - 2020-08-27
+
+### Added
+
+- TypeScript now recognize css files with such extensions `.pcss` and `.postcss`. Also css module now can has `.m.*` and `.mod.*` part to signals that css must be interpreted as module.
+- Autocompletion in css with `PostCSS` extension. 
+
+
+## [0.4.2] - 2020-08-27
 
 ### Added
 

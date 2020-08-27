@@ -4,7 +4,14 @@
     "target": "ES2017",
     "noImplicitAny": true,
     "moduleResolution": "node",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.(m|mod|module)\\.(pc|postc|c|le|sa|sc)ss$"
+        }
+      }
+    ]
   },
   "include": ["src/**/*", "@types/file_modules.d.ts"],
   "exclude": ["node_modules", "public", "**/*.spec.ts"]
