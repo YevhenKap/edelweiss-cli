@@ -42,14 +42,13 @@ export default [
     ],
   },
   {
-    input: 'src/service_worker/service_worker.ts',
+    input: 'src/service_worker/service_worker.js',
     output: {
       file: `${PUBLIC_DIR_NAME}/service_worker.js`,
       format: 'cjs',
       plugins: [terser()],
     },
     plugins: [
-      typescript(),
       replace({
         'process.env.NODE_ENV': JSON.stringify(
           process.env.NODE_ENV || 'production'

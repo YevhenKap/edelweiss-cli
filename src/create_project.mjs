@@ -9,11 +9,20 @@ import { promisify } from 'util';
 const access = promisify(fs.access);
 const copy = promisify(ncp);
 
+/** Path of common directory where are common files for all templates. */
+const COMMON_DIR_PATH = path.resolve(
+  new URL(import.meta.url).pathname,
+  '../../templates/common'
+);
+
 /**
  * @param {{ templateDirectory: string, targetDirectory: string, }} options
  * @returns {Promise<void>}
  */
 async function copyTemplateFiles(options) {
+  await copy(COMMON_DIR_PATH, options.targetDirectory, {
+    clobber: false,
+  });
   await copy(options.templateDirectory, options.targetDirectory, {
     clobber: false,
   });

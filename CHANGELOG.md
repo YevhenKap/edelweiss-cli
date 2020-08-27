@@ -1,4 +1,14 @@
-# [0.4.1] - 2020-08-27
+# [0.4.2] - 2020-08-27
+
+### Added
+
+- `common` directory where live common files for all templates.
+
+### Changed
+
+- Compress icons.
+
+## [0.4.1] - 2020-08-27
 
 ### Removed
 
