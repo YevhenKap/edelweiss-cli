@@ -58,7 +58,6 @@ export default [
           'index.html',
           'favicon.ico',
           'robots.txt',
-          'browserconfig.xml',
           'manifest.json',
           'icons/**/*',
           `${BIULD_DIR_NAME}/**/*`,
