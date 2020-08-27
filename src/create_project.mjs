@@ -5,6 +5,7 @@ import chalk from 'chalk';
 import execa from 'execa';
 import Listr from 'listr';
 import { promisify } from 'util';
+import { ES_CONFIG_NAME, createEsConfigContent } from './es_config.mjs';
 
 const access = promisify(fs.access);
 const copy = promisify(ncp);
@@ -46,6 +47,7 @@ async function initGit(targetDirectory) {
  * @returns {Promise<void>}
  */
 export async function createProject(options) {
+  // TODO(kapelianovych): pass to CLI path of directory, where project need to be installed
   const targetDirectory = process.cwd();
 
   const templateDirectory = path.resolve(
@@ -60,6 +62,10 @@ export async function createProject(options) {
     console.error(`${chalk.red.bold('ERROR')} Invalid template name`);
     process.exit(1);
   }
+
+  /** Creates config for Rollup. */
+  const content = createEsConfigContent({ template: options.template });
+  fs.writeFileSync(`${targetDirectory}/${ES_CONFIG_NAME}`, content);
 
   const tasks = new Listr([
     {
