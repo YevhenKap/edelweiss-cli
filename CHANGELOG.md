@@ -1,4 +1,16 @@
-# [0.3.1] - 2020-08-25
+# [0.4.0] - 2020-08-26
+
+### Added
+
+- `Prettier` config file to `typescript` template.
+- `robots.txt`.
+- Make Edelweiss as PWA-ready (added manifest file, icons and service worker).
+
+### Fixed
+
+- Name of `@types/file_modules.ts` in _tsconfig.json_.
+
+## [0.3.1] - 2020-08-25
 
 ### Changed
 

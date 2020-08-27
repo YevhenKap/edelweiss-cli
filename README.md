@@ -2,6 +2,8 @@
 
 > For using this CLI you must have NodeJS version >= **13.4.0** (From this version ES modules is enabled by default).
 
+CLI generates site that is [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)-ready and you can configure it as you want.
+
 ## Installation
 
 ```sh
