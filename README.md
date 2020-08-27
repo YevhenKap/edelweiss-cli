@@ -64,6 +64,12 @@ Full syntax:
 $ es -t javascript -g -i
 ```
 
+## Configuration
+
+### PostCSS
+
+If you use [PostCSS](https://postcss.org) as CSS preprocessor and you use VSCode for development, you may want to install [PostCSS language support](https://github.com/csstools/postcss-language) plugin, that adds support for modern and experimental CSS. Autocompletion is already configured for files with `.pcss` and `.postcss` extensions.
+
 ## LICENSE
 
 Created under [MIT license](LICENSE)
