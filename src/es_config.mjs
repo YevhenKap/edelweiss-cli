@@ -4,9 +4,10 @@ export function createEsConfigContent(options) {
   return `
   /**
    * This file contains some options that needed in development process.
-   * Do not edit it. In future it will be replaced by more optimal variant.
+   * Do not edit it and do not delete it.
+   * In future it will be replaced by more optimal variant.
   */
 
-  export const template = '${options.template}'
+  export const template = '${options.template}';
   `;
 }
