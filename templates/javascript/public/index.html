@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Web site created using edelweiss-cli" />
+    <!-- Config for Windows 10. -->
     <meta name="msapplication-config" content="browserconfig.xml" />
 
+    <!-- Manifest of PWA. -->
     <link rel="manifest" href="manifest.json" />
 
     <link
@@ -34,20 +36,24 @@
 
     <!-- 
       You can create any directories in `public` and place static
-      assets and import them directly in html. For example styles, fonts etc. 
+      assets and import them directly in html. For example styles, fonts etc.
+      Do not forget to add it to worker manifest in rollup.config.mjs,
+      if you use PWA.
     -->
     <!-- <link rel="stylesheet" href="styles/index.css" /> -->
 
     <!-- 
       Do not delete this line. 
-      It will be created automatically on first import css in js.
+      It will be created automatically if in any js file will be css import.
     -->
     <link rel="stylesheet" href="build/index.css" />
 
     <title>Edelweiss SPA</title>
   </head>
   <body>
+    <!-- Root of site. -->
     <div id="app"></div>
+    <!-- Entry point of your scripts (modules). -->
     <script src="build/index.js"></script>
   </body>
 </html>
