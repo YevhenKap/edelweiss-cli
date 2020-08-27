@@ -21,6 +21,7 @@
     "@rollup/plugin-url": "^5.0.1",
     "@rollup/plugin-replace": "^2.3.3",
     "autoprefixer": "^9.8.6",
+    "postcss-nested": "^4.2.3",
     "rollup": "^2.26.5",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-dev": "^1.1.2",

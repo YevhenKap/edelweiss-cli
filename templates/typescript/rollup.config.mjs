@@ -1,5 +1,6 @@
 import url from '@rollup/plugin-url';
 import dev from 'rollup-plugin-dev';
+import nested from 'postcss-nested';
 import cleaner from 'rollup-plugin-cleaner';
 import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
@@ -30,7 +31,7 @@ export default [
         publicPath: `/${BIULD_DIR_NAME}/images/`,
       }),
       postcss({
-        plugins: [autoprefixer()],
+        plugins: [nested(), autoprefixer()],
         extract: true,
         minimize: true,
       }),
