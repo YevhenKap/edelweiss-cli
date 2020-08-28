@@ -93,6 +93,13 @@ const mainClass = styles.main;
 
 If you use [PostCSS](https://postcss.org) as CSS preprocessor and you use VSCode for development, you may want to install [PostCSS language support](https://github.com/csstools/postcss-language) plugin for VSCode, that adds support for modern and experimental CSS. Autocompletion is already configured for files with `.pcss` and `.postcss` extensions (though there is [bug with autocompletion with this plugin](https://github.com/csstools/postcss-language/issues/2)).
 
+## Templates
+
+### JavaScript
+
+Files can have such extensions: `.js`, `,mjs` and `.cjs`.
+If you prefer use the newest ECMASript standard you can add [`Babel` plugin](https://github.com/rollup/plugins/tree/master/packages/babel) to transform code.
+
 ## LICENSE
 
 Created under [MIT license](LICENSE)
