@@ -1,4 +1,10 @@
-# [0.4.3] - 2020-08-28
+# [0.4.4] - 2020-08-28
+
+### Added
+
+- `postcss-import` plugin to templates.
+
+## [0.4.3] - 2020-08-28
 
 ### Added
 

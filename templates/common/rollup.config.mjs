@@ -7,6 +7,7 @@ import cleaner from 'rollup-plugin-cleaner';
 import postcss from 'rollup-plugin-postcss';
 import replace from '@rollup/plugin-replace';
 import typescript from '@rollup/plugin-typescript';
+import inlineImport from 'postcss-import';
 import autoprefixer from 'autoprefixer';
 import injectManifest from 'rollup-plugin-workbox-inject';
 import postCssPresetEnv from 'postcss-preset-env';
@@ -63,7 +64,7 @@ export default () => {
       publicPath: `/${BIULD_DIR_NAME}/images/`,
     }),
     postcss({
-      plugins: [nested(), autoprefixer(), postCssPresetEnv()],
+      plugins: [inlineImport(), nested(), postCssPresetEnv(), autoprefixer()],
       extract: true,
       minimize: true,
     }),
