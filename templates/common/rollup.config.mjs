@@ -77,7 +77,13 @@ export default () => {
   ];
 
   if (isTS(template)) {
-    sourcePlugins.splice(1, 0, typescript());
+    sourcePlugins.splice(
+      1,
+      0,
+      typescript({
+        noEmitOnError: false,
+      })
+    );
   }
 
   return [
