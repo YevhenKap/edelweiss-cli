@@ -10,6 +10,6 @@
       }
     ]
   },
-  "include": ["src/**/*", "@types/file_modules.d.ts"],
+  "include": ["src/**/*", "@types/*.d.ts"],
   "exclude": ["node_modules", "public", "**/*.spec.ts"]
 }

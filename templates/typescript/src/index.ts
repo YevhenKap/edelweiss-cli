@@ -6,6 +6,6 @@ Router.to(window.location.pathname);
 
 /** 
  * You may not register service worker, if you do not want to.
- * Simply delete this line.
+ * Simply delete or comment this line.
  */
 registerServiceWorker();

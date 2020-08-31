@@ -1,4 +1,20 @@
-# [0.4.4] - 2020-08-28
+# [0.5.0] - 2020-09-01
+
+### Added
+
+- VSCode now will use project's TypeScript version.
+
+### Fixed
+
+- Crashing dev server on error in `.ts` files.
+
+### Removed
+
+- `postcss-preset-env` plugin.
+- Ability to import `.pcss` and `.postcss` files.
+- Ability to have `.m.*` and `.mod.*` parts in CSS modules, due to types conflicts.
+
+## [0.4.4] - 2020-08-28
 
 ### Added
 

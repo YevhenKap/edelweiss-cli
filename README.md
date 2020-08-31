@@ -96,7 +96,7 @@ In order to use _Sass/Less_ install corresponding dependency:
 
 #### PostCSS
 
-If you use [PostCSS](https://postcss.org) as CSS preprocessor and you use VSCode for development, you may want to install [PostCSS language support](https://github.com/csstools/postcss-language) plugin for VSCode, that adds support for modern and experimental CSS. Autocompletion is already configured for files with `.pcss` and `.postcss` extensions (though there is [bug with autocompletion with this plugin](https://github.com/csstools/postcss-language/issues/2)).
+If you use [PostCSS](https://postcss.org) as CSS preprocessor and you use VSCode for development, you may want to install [PostCSS language support](https://github.com/csstools/postcss-language) plugin for VSCode, that adds support for modern and experimental CSS. Autocompletion is already configured for files with `.css` extension (though there is [bug with autocompletion with this plugin](https://github.com/csstools/postcss-language/issues/2)).
 
 ## Templates
 
