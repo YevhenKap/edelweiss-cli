@@ -10,7 +10,6 @@ import typescript from '@rollup/plugin-typescript';
 import inlineImport from 'postcss-import';
 import autoprefixer from 'autoprefixer';
 import injectManifest from 'rollup-plugin-workbox-inject';
-import postCssPresetEnv from 'postcss-preset-env';
 import { terser } from 'rollup-plugin-terser';
 import { template } from './es_config.mjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -64,7 +63,7 @@ export default () => {
       publicPath: `/${BIULD_DIR_NAME}/images/`,
     }),
     postcss({
-      plugins: [inlineImport(), nested(), postCssPresetEnv(), autoprefixer()],
+      plugins: [inlineImport(), nested(), autoprefixer()],
       extract: true,
       minimize: true,
     }),
