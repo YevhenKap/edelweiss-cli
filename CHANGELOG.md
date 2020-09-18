@@ -1,4 +1,14 @@
-# [0.5.0] - 2020-09-01
+# [0.5.1] - 2020-09-18
+
+### Changed
+
+- Bump up dependencies.
+
+### Fixed
+
+- Path to workspace's TypeScript version.
+
+## [0.5.0] - 2020-09-01
 
 ### Added
 

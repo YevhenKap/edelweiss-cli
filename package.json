@@ -1,6 +1,6 @@
 {
   "name": "@prostory/edelweiss-cli",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "CLI for creating edelweiss powered apps.",
   "main": "bin/index.mjs",
   "bin": {
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@prostory/baum": "^0.4.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.7.0",
+    "eslint": "^7.9.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
