@@ -5,16 +5,21 @@ import chalk from 'chalk';
 import execa from 'execa';
 import Listr from 'listr';
 import { promisify } from 'util';
-import { ES_CONFIG_NAME, createEsConfigContent } from './es_config.mjs';
+import { buildPackageJsonFile } from './build_package_json_file.mjs';
+import { buildRollupConfigFile } from './build_rollup_config_file.mjs';
 
 const access = promisify(fs.access);
 const copy = promisify(ncp);
 
+function getAbsolutePathToTemplateDir(dirName) {
+  return path.resolve(
+    new URL(import.meta.url).pathname,
+    `../../templates/${dirName}`
+  );
+}
+
 /** Path of common directory where are common files for all templates. */
-const COMMON_DIR_PATH = path.resolve(
-  new URL(import.meta.url).pathname,
-  '../../templates/common'
-);
+const COMMON_DIR_PATH = getAbsolutePathToTemplateDir('common');
 
 /**
  * @param {{ templateDirectory: string, targetDirectory: string, }} options
@@ -54,11 +59,7 @@ export async function createProject(options) {
     fs.mkdirSync(targetDirectory);
   }
 
-  const templateDirectory = path.resolve(
-    new URL(import.meta.url).pathname,
-    '../../templates',
-    options.template
-  );
+  const templateDirectory = getAbsolutePathToTemplateDir(options.template);
 
   try {
     await access(templateDirectory, fs.constants.R_OK);
@@ -68,8 +69,18 @@ export async function createProject(options) {
   }
 
   /** Creates config for Rollup. */
-  const content = createEsConfigContent({ template: options.template });
-  fs.writeFileSync(`${targetDirectory}/${ES_CONFIG_NAME}`, content);
+  const rollupContent = buildRollupConfigFile(
+    options.template,
+    targetDirectory
+  );
+  fs.writeFileSync(`${targetDirectory}/rollup.config.mjs`, rollupContent);
+
+  /** Creates package.json. */
+  const packageContent = buildPackageJsonFile(
+    options.dirname,
+    options.template
+  );
+  fs.writeFileSync(`${targetDirectory}/package.json`, packageContent);
 
   const tasks = new Listr([
     {

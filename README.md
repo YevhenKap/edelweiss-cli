@@ -4,16 +4,18 @@
 
 CLI generates site that is [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)-ready and you can configure it as you want.
 
+> CLI uses [experimental JSON modules](https://nodejs.org/api/esm.html#esm_experimental_json_modules), so you will see warning.
+
 ## Installation
 
 ```sh
-npm i -g @prostory/edelweiss-cli
+$ npm i -g @prostory/edelweiss-cli
 ```
 
 or
 
 ```sh
-yarn global add @prostory/edelweiss-cli
+$ yarn global add @prostory/edelweiss-cli
 ```
 
 ## Usage

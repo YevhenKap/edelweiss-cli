@@ -4,6 +4,14 @@
 
 - Ability to pass to console name of project and creating directory for it.
 
+### Changed
+
+- Generation of _package.json_ and Rollup config file.
+
+### Removed
+
+- Generation of _es_consfig.mjs_ file.
+
 ## [0.5.1] - 2020-09-18
 
 ### Changed
