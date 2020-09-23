@@ -1,4 +1,10 @@
-# [0.5.1] - 2020-09-18
+# [0.6.0] - 2020-09-23
+
+### Added
+
+- Ability to pass to console name of project and creating directory for it.
+
+## [0.5.1] - 2020-09-18
 
 ### Changed
 

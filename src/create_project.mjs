@@ -47,8 +47,12 @@ async function initGit(targetDirectory) {
  * @returns {Promise<void>}
  */
 export async function createProject(options) {
-  // TODO(kapelianovych): pass to CLI path of directory, where project need to be installed
-  const targetDirectory = process.cwd();
+  const targetDirectory =
+    options.dirname === '.' ? process.cwd() : options.dirname;
+
+  if (!fs.existsSync(targetDirectory)) {
+    fs.mkdirSync(targetDirectory);
+  }
 
   const templateDirectory = path.resolve(
     new URL(import.meta.url).pathname,
@@ -94,5 +98,5 @@ export async function createProject(options) {
 
   await tasks.run();
 
-  console.log(`${chalk.green.bold('DONE:')} Project ready. Happy coding :)`);
+  console.log(`${chalk.green.bold('DONE:')} Project is ready. Happy coding :)`);
 }

@@ -18,7 +18,7 @@
     "autoprefixer": "^10.0.0",
     "eslint": "^7.9.0",
     "postcss-import": "^12.0.1",
-    "postcss-nested": "^5.0.0",
+    "postcss-nested": "^4.2.3",
     "rollup": "^2.27.1",
     "rollup-plugin-cleaner": "^1.0.0",
     "rollup-plugin-dev": "^1.1.2",
@@ -36,7 +36,7 @@
     "workbox-strategies": "^5.1.4"
   },
   "dependencies": {
-    "@prostory/edelweiss": "^1.1.9"
+    "@prostory/edelweiss": "^1.2.2"
   },
   "browserslist": [
     "defaults"

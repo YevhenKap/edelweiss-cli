@@ -28,6 +28,20 @@ Simply type this commands in your terminal and answer to questions. That is all 
 
 Also you may set arguments to `es` utility:
 
+First argument is _name_ of your project. Name will be used also for creating directory for project. If you already have one, navigate to it and don't provide name or type "`.`" (signals that project needs to be initialized in current directory).
+
+```sh
+# Init project in app directory
+$ es app
+```
+
+```sh
+# Init project in current directory
+$ es .
+# or
+$ es
+```
+
 - `-t` or `--template` with parameter: **javascript**(for projects on plain JavaScript. Used as default template.) or **typescript**.
 
 > Another templates are in progress.
@@ -61,7 +75,9 @@ $ es -s
 Full syntax:
 
 ```sh
-$ es -t javascript -g -i
+$ es app -t javascript -g -i
+# or
+$ es app -git javascript
 ```
 
 ## Configuration

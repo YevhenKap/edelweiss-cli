@@ -13,6 +13,7 @@ const Templates = Object.freeze({
  * git: boolean,
  * runInstall: boolean,
  * template?: Templates[keyof Templates],
+ * dirname: string,
  * }} CliOptions
  */
 
@@ -46,6 +47,7 @@ function parseArgumentsIntoOptions(rawArgs) {
     git: args['--git'] || false,
     runInstall: args['--install'] || false,
     template: args['--template'] || Templates.JavaScript,
+    dirname: args._[0] || '.',
   };
 }
 
