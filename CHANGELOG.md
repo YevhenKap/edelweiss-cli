@@ -1,4 +1,10 @@
-# [0.6.0] - 2020-09-23
+# [0.6.1] - 2020-09-28
+
+### Added
+
+- Fallback page for unknown routes.
+
+## [0.6.0] - 2020-09-23
 
 ### Added
 

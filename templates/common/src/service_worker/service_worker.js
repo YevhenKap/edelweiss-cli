@@ -1,12 +1,19 @@
-import { registerRoute } from 'workbox-routing';
-import { precacheAndRoute } from 'workbox-precaching';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { setCacheNameDetails } from 'workbox-core';
+import { createHandlerBoundToURL, precacheAndRoute } from 'workbox-precaching';
 import {
   CacheFirst,
   NetworkFirst,
   StaleWhileRevalidate,
 } from 'workbox-strategies';
+import {
+  registerRoute,
+  NavigationRoute,
+  setDefaultHandler,
+} from 'workbox-routing';
+
+/** URL for html that will returned as responce if request fails. */
+const FALLBACK_HTML_URL = '/index.html';
 
 setCacheNameDetails({
   // Change as you want
@@ -70,3 +77,12 @@ registerRoute(
     cacheName: 'manifest-cache',
   })
 );
+
+/**
+ * Whenever a user goes to your site in the browser,
+ * the request for the page will be a navigation request and it
+ * will be served the cached page.
+ */
+registerRoute(new NavigationRoute(createHandlerBoundToURL(FALLBACK_HTML_URL)));
+
+setDefaultHandler(new StaleWhileRevalidate());
