@@ -1,4 +1,11 @@
-# [0.6.1] - 2020-09-28
+# [0.6.2] - 2020-10-04
+
+### Changed
+
+- Bump `@prostory/edelweiss`.
+- Add link to doc site in README.
+
+## [0.6.1] - 2020-09-28
 
 ### Added
 
