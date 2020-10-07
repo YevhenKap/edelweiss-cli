@@ -20,7 +20,6 @@ export function buildRollupConfigFile(templateName, projectDirectory) {
   import fs from 'fs';
   import url from '@rollup/plugin-url';
   import dev from 'rollup-plugin-dev';
-  import path from 'path';
   import nested from 'postcss-nested';
   import cleaner from 'rollup-plugin-cleaner';
   import postcss from 'rollup-plugin-postcss';
