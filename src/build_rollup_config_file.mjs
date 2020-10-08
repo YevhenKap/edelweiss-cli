@@ -59,13 +59,11 @@ export function buildRollupConfigFile(templateName, projectDirectory) {
         output: {
           file: \`\${PUBLIC_DIR_NAME}/\${BIULD_DIR_NAME}/index.js\`,
           format: 'cjs',
-          plugins: [terser()],
         },
         plugins: [
           cleaner({
             targets: [\`\${PUBLIC_DIR_NAME}/\${BIULD_DIR_NAME}/\`],
           }),
-          ${isTS ? 'typescript({ noEmitOnError: false }),' : ''}
           url({
             destDir: \`\${PUBLIC_DIR_NAME}/\${BIULD_DIR_NAME}/images\`,
             publicPath: \`/\${BIULD_DIR_NAME}/images/\`,
@@ -75,7 +73,17 @@ export function buildRollupConfigFile(templateName, projectDirectory) {
             extract: true,
             minimize: true,
           }),
-          nodeResolve({ browser: true }),
+          nodeResolve({
+            browser: true,
+            dedupe: [
+              /* 
+               * Place names of dependencies, that need to be unique.
+               * And plugin will remove all duplicates.
+               */
+            ]
+          }),
+          ${isTS ? 'typescript({ noEmitOnError: false }),' : ''}
+          terser(),
           dev({
             dirs: [PUBLIC_DIR_NAME],
             spa: \`\${PUBLIC_DIR_NAME}/index.html\`,
