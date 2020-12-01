@@ -17,3 +17,25 @@ export function registerServiceWorker() {
     });
   }
 }
+
+/** Unregister service worker, if it is supported by browser. */
+export function unregisterServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .getRegistrations()
+      .then((registrations) =>
+        Promise.all(
+          registrations.map((registration) => registration.unregister())
+        )
+      )
+      .then((succeeds) =>
+        succeeds.every((value) => value === true)
+          ? console.log(
+              `Service worker from scope: "${location.href}" is successfully deleted.`
+            )
+          : console.log(
+              `Service worker from scope: "${location.href}" is not deleted.`
+            )
+      );
+  }
+}

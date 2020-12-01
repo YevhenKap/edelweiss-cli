@@ -1,13 +1,20 @@
-# Unreleased
+# [0.7.0] - 2020-12-02
 
 ### Added
 
 - _dedupe_ option to `@rollup/plugin-node-resolve` plugin.
+- Strict options to `tsconfig.json`.
 
 ### Changed
 
 - _target_ option for TS compiler increased to `ES2018`.
 - Move `typescript` and `terser` plugins in rollup config.
+- Bump version of packages.
+- Simplify rollup config file.
+
+## Fixed
+
+- Link to docs for JavaScript and TypeScript templates.
 
 ## [0.6.2] - 2020-10-04
 

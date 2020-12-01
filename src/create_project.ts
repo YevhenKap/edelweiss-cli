@@ -5,13 +5,14 @@ import chalk from 'chalk';
 import execa from 'execa';
 import Listr from 'listr';
 import { promisify } from 'util';
-import { buildPackageJsonFile } from './build_package_json_file.mjs';
-import { buildRollupConfigFile } from './build_rollup_config_file.mjs';
+import { buildPackageJsonFile } from './build_package_json_file';
+import { buildRollupConfigFile } from './build_rollup_config_file';
+import type { CliOptions, CopyTemplateOptions } from './types';
 
 const access = promisify(fs.access);
 const copy = promisify(ncp);
 
-function getAbsolutePathToTemplateDir(dirName) {
+function getAbsolutePathToTemplateDir(dirName: string): string {
   return path.resolve(
     new URL(import.meta.url).pathname,
     `../../templates/${dirName}`
@@ -21,11 +22,7 @@ function getAbsolutePathToTemplateDir(dirName) {
 /** Path of common directory where are common files for all templates. */
 const COMMON_DIR_PATH = getAbsolutePathToTemplateDir('common');
 
-/**
- * @param {{ templateDirectory: string, targetDirectory: string, }} options
- * @returns {Promise<void>}
- */
-async function copyTemplateFiles(options) {
+async function copyTemplateFiles(options: CopyTemplateOptions): Promise<void> {
   await copy(COMMON_DIR_PATH, options.targetDirectory, {
     clobber: false,
   });
@@ -34,11 +31,7 @@ async function copyTemplateFiles(options) {
   });
 }
 
-/**
- * @param {string} targetDirectory
- * @returns {Promise<void>}
- */
-async function initGit(targetDirectory) {
+async function initGit(targetDirectory: string): Promise<void> {
   const result = await execa('git', ['init'], {
     cwd: targetDirectory,
   });
@@ -47,11 +40,7 @@ async function initGit(targetDirectory) {
   }
 }
 
-/**
- * @param {import('./index.mjs').CliOptions} options
- * @returns {Promise<void>}
- */
-export async function createProject(options) {
+export async function createProject(options: CliOptions): Promise<void> {
   const targetDirectory =
     options.dirname === '.' ? process.cwd() : options.dirname;
 
@@ -69,11 +58,8 @@ export async function createProject(options) {
   }
 
   /** Creates config for Rollup. */
-  const rollupContent = buildRollupConfigFile(
-    options.template,
-    targetDirectory
-  );
-  fs.writeFileSync(`${targetDirectory}/rollup.config.mjs`, rollupContent);
+  const rollupContent = buildRollupConfigFile(options.template);
+  fs.writeFileSync(`${targetDirectory}/rollup.config.js`, rollupContent);
 
   /** Creates package.json. */
   const packageContent = buildPackageJsonFile(

@@ -1,37 +1,17 @@
 import arg from 'arg';
 import inquirer from 'inquirer';
-import { createProject } from './create_project.mjs';
+import { Templates } from './enums';
+import { CliOptions } from './types';
+import { createProject } from './create_project';
 
-const Templates = Object.freeze({
-  JavaScript: 'javascript',
-  TypeScript: 'typescript',
-});
-
-/**
- * @typedef {{
- * skipPrompts: boolean,
- * git: boolean,
- * runInstall: boolean,
- * template?: Templates[keyof Templates],
- * dirname: string,
- * }} CliOptions
- */
-
-/**
- * @param {Array<string>} args
- */
-export async function cli(args) {
+export async function cli(args: ReadonlyArray<string>): Promise<void> {
   const options = await propmpForMissingOptions(
     parseArgumentsIntoOptions(args)
   );
   await createProject(options);
 }
 
-/**
- * @param {Array<string>} rawArgs
- * @returns {CliOptions}
- */
-function parseArgumentsIntoOptions(rawArgs) {
+function parseArgumentsIntoOptions(rawArgs: ReadonlyArray<string>): CliOptions {
   const args = arg({
     '--install': Boolean,
     '--git': Boolean,
@@ -43,20 +23,17 @@ function parseArgumentsIntoOptions(rawArgs) {
     '-s': '--skip',
   });
   return {
-    skipPrompts: args['--skip'] || false,
-    git: args['--git'] || false,
-    runInstall: args['--install'] || false,
-    template: args['--template'] || Templates.JavaScript,
-    dirname: args._[0] || '.',
+    skipPrompts: args['--skip'] ?? false,
+    git: args['--git'] ?? false,
+    runInstall: args['--install'] ?? false,
+    template: (args['--template'] as Templates) ?? Templates.JavaScript,
+    dirname: args._[0] ?? '.',
   };
 }
 
-/**
- *
- * @param {CliOptions} options
- * @returns {Promise<CliOptions>}
- */
-async function propmpForMissingOptions(options) {
+async function propmpForMissingOptions(
+  options: CliOptions
+): Promise<CliOptions> {
   if (options.skipPrompts) {
     return options;
   }
@@ -85,7 +62,7 @@ async function propmpForMissingOptions(options) {
 
   return {
     ...options,
-    git: options.git || answers.git,
-    runInstall: options.runInstall || answers.npm,
+    git: options.git ?? answers.git,
+    runInstall: options.runInstall ?? answers.npm,
   };
 }

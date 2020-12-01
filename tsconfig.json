@@ -2,18 +2,15 @@
   "compilerOptions": {
     "strict": true,
     "target": "ES2018",
-    "noImplicitAny": true,
+    "module": "ESNEXT",
     "strictNullChecks": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ]
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["src", "@types/*.d.ts"],
-  "exclude": ["node_modules", "public", "**/*.spec.ts"]
+  "include": ["src"],
+  "exclude": ["node_modules", "bin", "build"]
 }
