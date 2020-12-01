@@ -11,6 +11,7 @@
     "clean": "rm -r build/*",
     "prebuild": "npm run clean",
     "build": "rollup -c",
+    "prerelease": "npm run build",
     "release": "npm publish build/ --access public",
     "test": "node test/index.mjs"
   },
