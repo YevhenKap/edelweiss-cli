@@ -7,6 +7,10 @@
   "bin": {
     "es": "bin/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YevhenKap/edelweiss-cli"
+  },
   "scripts": {
     "clean": "rm -r build/*",
     "prebuild": "npm run clean",
