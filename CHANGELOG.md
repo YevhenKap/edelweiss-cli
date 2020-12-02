@@ -1,4 +1,11 @@
-# [0.7.0] - 2020-12-02
+# [0.7.1] - 2020-12-02
+
+### Changed
+
+- Bump `@prostory/edelweiss` package version.
+- Adopt sample app to new version.
+
+## [0.7.0] - 2020-12-02
 
 ### Added
 

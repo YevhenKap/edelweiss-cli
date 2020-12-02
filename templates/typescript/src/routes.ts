@@ -1,7 +1,7 @@
 import { home } from './pages/home';
-import { Router } from '@prostory/edelweiss';
+import { router } from '@prostory/edelweiss';
 
-Router.add({
+router.add({
   path: '/',
   container: '#app',
   view(): string {

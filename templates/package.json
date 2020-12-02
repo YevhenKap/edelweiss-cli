@@ -37,7 +37,7 @@
     "workbox-strategies": "^6.0.0"
   },
   "dependencies": {
-    "@prostory/edelweiss": "^1.5.0"
+    "@prostory/edelweiss": "^1.7.0"
   },
   "browserslist": [
     "defaults"
