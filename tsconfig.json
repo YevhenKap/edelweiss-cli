@@ -2,13 +2,9 @@
   "compilerOptions": {
     "strict": true,
     "target": "ES2018",
-    "module": "ESNEXT",
-    "strictNullChecks": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src"],

@@ -13,13 +13,11 @@ export default {
   plugins: [typescript(), json(), terser()],
   external: [
     'fs',
-    'ncp',
-    'arg',
+    'ora',
     'util',
     'path',
-    'listr',
-    'execa',
     'chalk',
-    'inquirer',
+    'commander',
+    'child_process',
   ],
 };

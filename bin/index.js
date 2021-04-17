@@ -1,5 +1,5 @@
-#!/usr/bin/env node --experimental-json-modules
+#!/usr/bin/env node
 
-import { cli } from '../build/index.js';
+import { start } from '../build/index.js';
 
-cli(process.argv);
+start(process.argv);

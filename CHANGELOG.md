@@ -1,4 +1,19 @@
-# [0.7.1] - 2020-12-02
+# [1.0.0-alpha.1] - 2021-04-17
+
+Package is completely rewritten.
+
+### Changed
+
+- `rollup` bundler replaced by [`parcel`](https://v2.parceljs.org).
+- Output message of CLI.
+
+### Removed
+
+- Prompt to install dependencies. Now they are installed automatically.
+- Prompt to initialize git repository. Now you should do it manually, if you want.
+- TypeScript template.
+
+## [0.7.1] - 2020-12-02
 
 ### Changed
 
