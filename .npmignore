@@ -1,10 +1,10 @@
 node_modules/
 src/
-test/
+tests/
 
 .gitignore
 .npmignore
 .prettierrc.json
 package-lock.json
-rollup.config.json
+rollup.config.js
 tsconfig.json
